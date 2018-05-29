@@ -6,7 +6,12 @@ using namespace cv;
 int main(int argc, char* argv[]) {
 	cout << "Helloworld - OpenCV" << endl;
 
-	Mat image = cv::imread("../../../images/lena.jpg");
+	if (argc != 2) {
+		cout << "Usage: helloworld <image>" << endl;
+		return -1;
+	}
+
+	Mat image = cv::imread(argv[1]);
 	if (image.empty()) {
 		cout << "Could not find image" << endl;
 		return -1;
